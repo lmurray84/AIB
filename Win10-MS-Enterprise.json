@@ -1,0 +1,70 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "imageTemplateName": {
+        "type": "string"
+      },
+      "api-version": {
+        "type": "string"
+      },
+      "svclocation": {
+        "type": "string"
+      }
+    },
+    "variables": {},
+    "resources": [
+      {
+        "name": "[parameters('imageTemplateName')]",
+        "type": "Microsoft.VirtualMachineImages/imageTemplates",
+        "apiVersion": "[parameters('api-version')]",
+        "location": "[parameters('svclocation')]",
+        "dependsOn": [],
+        "tags": {
+          "imagebuilderTemplate": "win10multi",
+          "userIdentity": "enabled"
+        },
+        "identity": {
+          "type": "UserAssigned",
+          "userAssignedIdentities": {
+            "<imgBuilderId>": {}
+          }
+        },
+        "properties": {
+          "buildTimeoutInMinutes": 60,
+          "vmProfile": {
+            "vmSize": "Standard_D2_v2",
+            "osDiskSizeGB": 128
+          },
+          "source": {
+            "type": "PlatformImage",
+            "publisher": "MicrosoftWindowsDesktop",
+            "offer": "Windows-10",
+            "sku": "20h1-evd",
+            "version": "latest"
+          },
+          "customize": [
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "name": "InstallApplications",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Install-Applications.ps1"
+            }
+          ],
+          "distribute": [
+            {
+              "type": "ManagedImage",
+              "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
+              "location": "<region>",
+              "runOutputName": "<runOutputName>",
+              "artifactTags": {
+                "source": "azVmImageBuilder",
+                "baseosimg": "windows10Multi"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  
