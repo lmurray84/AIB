@@ -49,8 +49,7 @@
               "runElevated": true,
               "name": "InstallApplications",
               "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Install-Applications.ps1"
-            },
-            
+            }, 
             {
               "type": "PowerShell",
               "runElevated": true,
