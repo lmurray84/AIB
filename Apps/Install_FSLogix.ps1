@@ -6,7 +6,7 @@ New-Item -ItemType Directory -Path $softwareRepo -Force -ErrorAction SilentlyCon
 
 # Download FSLogix Apps
 Write-Host "Azure Image Builder: Downloading FSLogix Apps latest software"
-Invoke-WebRequest -Uri https://aka.ms/fslogix_download -OutFile "$softwareRepo\FSLogix.zip"
+Invoke-WebRequest -Uri "https://aka.ms/fslogix_download" -OutFile "$softwareRepo\FSLogix.zip"
 
 # Extract FSLogix Apps
 Write-Host "Azure Image Builder: Extracting FSLogix Apps software"
@@ -15,5 +15,5 @@ Start-Sleep 5
 
 # Install FSLogix Apps
 Write-Host "Azure Image Builder: Installing FSLogix Apps"
-Invoke-Expression -Command "$softwareRepo\FSLogix\x64\Release\FSLogixAppsSetup.exe /install /quiet /norestart"
+Start-Process "$softwareRepo\FSLogix\x64\Release\FSLogixAppsSetup.exe" -ArgumentList "/install /quiet /norestart /log $softwareRepo\FSLogixApps.log" -Wait
 Write-Host "Azure Image Builder: Completed FSLogix Apps installation"
