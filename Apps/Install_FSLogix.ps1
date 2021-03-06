@@ -16,4 +16,4 @@ Start-Sleep 5
 # Install FSLogix Apps
 Write-Host "Azure Image Builder: Installing FSLogix Apps"
 Invoke-Expression -Command "$softwareRepo\FSLogix\x64\Release\FSLogixAppsSetup.exe /install /quiet /norestart"
-Write-Host "Azure Image Builder: FSLogix Apps install complete"
+Write-Host "Azure Image Builder: Completed FSLogix Apps installation"
