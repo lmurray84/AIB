@@ -76,6 +76,13 @@
               "type": "PowerShell",
               "runElevated": true,
               "runAsSystem": true,
+              "name": "InstallLanguagePacks",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Languages/Add_Language_en-GB.ps1"
+            },
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "runAsSystem": true,
               "name": "OptimizeOS",
               "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Optimize/Optimize_20H2.ps1"
             },
