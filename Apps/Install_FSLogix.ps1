@@ -15,5 +15,5 @@ Start-Sleep 5
 
 # Install FSLogix Apps
 Write-Host "Azure Image Builder: Installing FSLogix Apps"
-Start-Process "$softwareRepo\FSLogix\x64\Release\FSLogixAppsSetup.exe" -ArgumentList "/install /quiet /norestart /log $softwareRepo\FSLogixApps.log" -Wait
+Start-Process -FilePath "$softwareRepo\FSLogix\x64\Release\FSLogixAppsSetup.exe" -ArgumentList "/install /quiet /norestart /log $softwareRepo\FSLogixApps.log" -Wait
 Write-Host "Azure Image Builder: Completed FSLogix Apps installation"
