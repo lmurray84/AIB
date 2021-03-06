@@ -10,7 +10,8 @@ Add-AppProvisionedPackage -Online -PackagePath C:\Languages\en-GB\LanguageExperi
 Add-WindowsPackage -Online -PackagePath C:\Languages\en-GB\Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab
 
 # Set language pack
-Write-Host "Azure Image Builder: Configuring en-GB language"
+Write-Host "Azure Image Builder: Adding en-GB language"
 $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("en-GB")
 Set-WinUserLanguageList $LanguageList -Force
+Write-Host "Azure Image Builder: Finished adding en-GB language pack"
