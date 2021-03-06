@@ -15,4 +15,9 @@ Start-Sleep 5
 
 # Download XML configuration file
 Write-Host "Azure Image Builder: Downloading the XML configuration file"
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/lmurray84/AIB/main/M365_Apps.xml -OutFile "$softwareRepo\M365\M365_Apps.xml"
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_M365_Apps.xml -OutFile "$softwareRepo\M365\M365_Apps.xml"
+
+# Install Microsoft 365 Apps for Enterprise
+Write-Host "Azure Image Builder: Installing Microsoft 365 Apps for Enterprise"
+Invoke-Expression -Command "$softwareRepo\M365\Setup.exe /configure $softwareRepo\M365\M365_Apps.xml" -ErrorAction SilentlyContinue
+Write-Host "Azure Image Builder: Completed Microsoft 365 Apps for Enterprise installation"
