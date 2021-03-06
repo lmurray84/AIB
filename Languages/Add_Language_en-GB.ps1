@@ -1,3 +1,9 @@
+$softwareRepo = "C:\Temp\Languages\en-GB"
+
+# Create language pack repository
+Write-Host "Azure Image Builder: Creating language packs repository"
+New-Item -ItemType Directory -Path $softwareRepo -Force -ErrorAction SilentlyContinue
+
 # Download language packs
 Write-Host "Azure Image Builder: Downloading en-GB language packs"
 Invoke-WebRequest -Uri https://github.com/lmurray84/AIB/blob/main/Languages/LanguageExperiencePack.en-GB.Neutral.appx?raw=true -OutFile "$softwareRepo\LanguageExperiencePack.en-GB.Neutral.appx"
@@ -14,4 +20,4 @@ Write-Host "Azure Image Builder: Adding en-GB language"
 $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("en-GB")
 Set-WinUserLanguageList $LanguageList -Force
-Write-Host "Azure Image Builder: Finished adding en-GB language pack"
+Write-Host "Azure Image Builder: Finished adding en-GB language packs"
