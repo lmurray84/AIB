@@ -1,7 +1,7 @@
 $softwareRepo = "C:\Temp\Languages\en-GB"
 
-# Create language pack repository
-Write-Host "Azure Image Builder: Creating language packs repository"
+# Create repository for language packs
+Write-Host "Azure Image Builder: Creating repository for language packs"
 New-Item -ItemType Directory -Path $softwareRepo -Force -ErrorAction SilentlyContinue
 
 # Download language packs
