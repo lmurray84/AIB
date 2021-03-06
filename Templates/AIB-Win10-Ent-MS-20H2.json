@@ -1,0 +1,124 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "imageTemplateName": {
+        "type": "string"
+      },
+      "api-version": {
+        "type": "string"
+      },
+      "svclocation": {
+        "type": "string"
+      }
+    },
+    "variables": {},
+    "resources": [
+      {
+        "name": "[parameters('imageTemplateName')]",
+        "type": "Microsoft.VirtualMachineImages/imageTemplates",
+        "apiVersion": "[parameters('api-version')]",
+        "location": "[parameters('svclocation')]",
+        "dependsOn": [],
+        "tags": {
+          "imagebuilderTemplate": "win10multi",
+          "userIdentity": "enabled"
+        },
+        "identity": {
+          "type": "UserAssigned",
+          "userAssignedIdentities": {
+            "/subscriptions/045feb1c-8f6a-4b14-af82-1e38d11adc01/resourcegroups/lm-rg-aib/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity1612014372": {}
+          }
+        },
+        "properties": {
+          "buildTimeoutInMinutes": 120,
+          "vmProfile": {
+            "vmSize": "Standard_D2_v2",
+            "osDiskSizeGB": 128
+          },
+          "source": {
+            "type": "PlatformImage",
+            "publisher": "MicrosoftWindowsDesktop",
+            "offer": "Windows-10",
+            "sku": "20h2-evd",
+            "version": "latest"
+          },
+          "customize": [
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "runAsSystem": true,
+              "name": "InstallFSLogix",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_FSLogix.ps1"
+            },
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "runAsSystem": true,
+              "name": "InstallTeams",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_Teams_Per-Machine.ps1"
+            },
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "runAsSystem": true,
+              "name": "InstallOneDrive",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_OneDrive_Per-Machine.ps1"
+            },
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "runAsSystem": true,
+              "name": "InstallM365Apps",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_M365_Apps.ps1"
+            },
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "runAsSystem": true,
+              "name": "OptimizeOS",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Optimize/Optimize_20H2.ps1"
+            },
+            {
+              "type": "WindowsRestart",
+              "restartCheckCommand": "write-host 'Restarting post OS optimization'",
+              "restartTimeout": "5m"
+            },
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "runAsSystem": true,
+              "name": "DeprovisioningScript",
+              "inline": [
+                "((Get-Content -path C:\\DeprovisioningScript.ps1 -Raw) -replace 'Sysprep.exe /oobe /generalize /quiet /quit','Sysprep.exe /oobe /generalize /quit /mode:vm' ) | Set-Content -Path C:\\DeprovisioningScript.ps1"
+               ]
+            }
+          ],
+          "distribute": [
+            {
+              "type": "ManagedImage",
+              "imageId": "/subscriptions/045feb1c-8f6a-4b14-af82-1e38d11adc01/resourceGroups/lm-rg-aib/providers/Microsoft.Compute/images/AIB-Win10-Ent-MS-20H2",
+              "location": "northeurope",
+              "runOutputName": "win10Client",
+              "artifactTags": {
+                "source": "azVmImageBuilder",
+                "baseosimg": "windows10Multi"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
