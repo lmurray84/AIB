@@ -10,7 +10,7 @@ Invoke-WebRequest -Uri "https://aka.ms/fslogix_download" -OutFile "$softwareRepo
 
 # Extract FSLogix Apps
 Write-Host "Azure Image Builder: Extracting FSLogix Apps software"
-Expand-Archive -Path "$softwareRepo\FSLogix.zip" -DestinationPath "$softwareRepo\FSLogix\" -Force
+Expand-Archive -Path "$softwareRepo\FSLogix.zip" -DestinationPath "$softwareRepo" -Force
 Start-Sleep 5
 
 # Install FSLogix Apps
