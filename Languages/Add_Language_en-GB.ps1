@@ -20,4 +20,4 @@ Write-Host "Azure Image Builder: Adding en-GB language"
 $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("en-GB")
 Set-WinUserLanguageList $LanguageList -Force
-Write-Host "Azure Image Builder: Finished adding en-GB language packs"
+Write-Host "Azure Image Builder: Completed en-GB language pack installations"
