@@ -12,7 +12,6 @@
   <RemoveMSI/>
   <Updates Enabled="FALSE"/>
   <Display Level="None" AcceptEULA="TRUE" />
-  <Logging Level="Standard" Path="C:\Temp\Software\M365" />
   <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
   <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>
