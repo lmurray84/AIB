@@ -1,4 +1,4 @@
-$softwareRepo = "C:\Software\FSLogix"
+$softwareRepo = "C:\Temp\Software\FSLogix"
 
 # Create FSLogix software repository
 Write-Host "Azure Image Builder: Creating FSLogix software repository"
