@@ -6,9 +6,9 @@ New-Item -ItemType Directory -Path $softwareRepo -Force -ErrorAction SilentlyCon
 
 # Download language packs
 Write-Host "Azure Image Builder: Downloading en-GB language packs"
-Invoke-WebRequest -Uri https://github.com/lmurray84/AIB/blob/main/Languages/LanguageExperiencePack.en-GB.Neutral.appx?raw=true -OutFile "$softwareRepo\LanguageExperiencePack.en-GB.Neutral.appx"
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/lmurray84/AIB/main/Languages/License.xml -OutFile "$softwareRepo\License.xml"
-Invoke-WebRequest -Uri https://github.com/lmurray84/AIB/blob/main/Languages/Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab?raw=true -OutFile "$softwareRepo\Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab"
+Invoke-WebRequest -Uri "https://github.com/lmurray84/AIB/blob/main/Languages/LanguageExperiencePack.en-GB.Neutral.appx?raw=true" -OutFile "$softwareRepo\LanguageExperiencePack.en-GB.Neutral.appx"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/lmurray84/AIB/main/Languages/License.xml" -OutFile "$softwareRepo\License.xml"
+Invoke-WebRequest -Uri "https://github.com/lmurray84/AIB/blob/main/Languages/Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab?raw=true" -OutFile "$softwareRepo\Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab"
 
 # Install language packs
 Write-Host "Azure Image Builder: Installing en-GB language packs"
