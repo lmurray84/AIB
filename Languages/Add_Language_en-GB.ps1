@@ -4,6 +4,10 @@ $softwareRepo = "C:\Temp\Languages\en-GB"
 Write-Host "Azure Image Builder: Creating repository for language packs"
 New-Item -ItemType Directory -Path $softwareRepo -Force -ErrorAction SilentlyContinue
 
+# Disable scheduled task for language pack cleanup
+Write-Host "Azure Image Builder: Disabling scheduled task for language pack cleanup"
+Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -TaskName "Pre-staged app cleanup" -ErrorAction SilentlyContinue
+
 # Download language packs
 Write-Host "Azure Image Builder: Downloading en-GB language packs"
 Invoke-WebRequest -Uri "https://github.com/lmurray84/AIB/blob/main/Languages/LanguageExperiencePack.en-GB.Neutral.appx?raw=true" -OutFile "$softwareRepo\LanguageExperiencePack.en-GB.Neutral.appx"
