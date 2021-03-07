@@ -6,7 +6,7 @@ New-Item -ItemType Directory -Path $softwareRepo -Force -ErrorAction SilentlyCon
 
 # Download OneDrive for Business
 Write-Host "Azure Image Builder: Downloading OneDrive for Business latest software"
-Invoke-WebRequest -Uri "https://aka.ms/OneDriveWVD-Installer" -OutFile "$softwareRepo\OneDriveSetup.exe"
+Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=844652" -OutFile "$softwareRepo\OneDriveSetup.exe"
 
 # Install OneDrive for Business
 Write-Host "Azure Image Builder: Installing OneDrive for Business"
