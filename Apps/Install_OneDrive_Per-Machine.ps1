@@ -10,5 +10,5 @@ Invoke-WebRequest -Uri "https://aka.ms/OneDriveWVD-Installer" -OutFile "$softwar
 
 # Install OneDrive for Business
 Write-Host "Azure Image Builder: Installing OneDrive for Business"
-Start-Process -FilePath "$softwareRepo\OneDriveSetup.exe" -ArgumentList "/allusers /silent /norestart" -Wait
+Start-Process -FilePath "$softwareRepo\OneDriveSetup.exe" -ArgumentList "/allusers" -Wait
 Write-Host "Azure Image Builder: Completed OneDrive for Business installation"
