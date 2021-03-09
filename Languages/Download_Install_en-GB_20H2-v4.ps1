@@ -1,4 +1,3 @@
-﻿
 # Define variables
 $languagesDir = 'C:\Languages\en-GB'
 
@@ -54,8 +53,6 @@ Dismount-DiskImage -ImagePath $languagesDir\en-GB_FOD.iso
 
 # Disable language pack cleanup
 Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -TaskName "Pre-staged app cleanup" -ErrorAction SilentlyContinue
-Stop-ScheduledTask -TaskPath "\Microsoft\Windows\International\" -TaskName "Synchronize Language Settings" -ErrorAction SilentlyContinue
-Disable-ScheduledTask -TaskPath "\Microsoft\Windows\International\" -TaskName "Synchronize Language Settings" -ErrorAction SilentlyContinue
 
 
 # Install language packs
