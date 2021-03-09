@@ -1,4 +1,3 @@
-
 # Define variables
 $languagesDir = 'C:\Languages\en-GB'
 
