@@ -64,51 +64,51 @@ Dismount-DiskImage -ImagePath $languagesDir\en-GB_FOD.iso
 
 # Disable language pack cleanup
 Write-Host "Azure Image Builder: Disabling scheduled task 'Pre-staged app cleanup'"
-Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -TaskName "Pre-staged app cleanup" -ErrorAction SilentlyContinue
+Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -TaskName "Pre-staged app cleanup"
 
 
 # Install language packs
 Write-Host "Azure Image Builder: Installing Language Experience Pack"
-Start-Process -FilePath PowerShell -ArgumentList "Add-AppProvisionedPackage -Online -PackagePath $languagesDir\Language\LanguageExperiencePack.en-GB.Neutral.appx -LicensePath $languagesDir\Language\License.xml" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-AppProvisionedPackage -Online -PackagePath $languagesDir\Language\LanguageExperiencePack.en-GB.Neutral.appx -LicensePath $languagesDir\Language\License.xml" -Wait 
 
 Write-Host "Azure Image Builder: Installing Client Language Pack"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\Language\Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\Language\Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab" -Wait
 
 Write-Host "Azure Image Builder: Installing Language Features Basic"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-Basic-en-gb-Package~31bf3856ad364e35~amd64~~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-Basic-en-gb-Package~31bf3856ad364e35~amd64~~.cab" -Wait
 
 Write-Host "Azure Image Builder: Installing Language Features Handwriting"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-Handwriting-en-gb-Package~31bf3856ad364e35~amd64~~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-Handwriting-en-gb-Package~31bf3856ad364e35~amd64~~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing Language Features OCR"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-OCR-en-gb-Package~1bf3856ad364e35~amd64~~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-OCR-en-gb-Package~1bf3856ad364e35~amd64~~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing Language Features Text-to-Speech"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-TextToSpeech-en-gb-Package~31bf3856ad364e35~amd64~~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-LanguageFeatures-TextToSpeech-en-gb-Package~31bf3856ad364e35~amd64~~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing NetFx3 package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-NetFx3-OnDemand-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-NetFx3-OnDemand-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait
 
 Write-Host "Azure Image Builder: Installing Internet Explorer package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait
 
 Write-Host "Azure Image Builder: Installing MS Paint package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-MSPaint-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-MSPaint-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing Notepad package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-Notepad-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-Notepad-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing PowerShell ISE package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-PowerShell-ISE-FOD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-PowerShell-ISE-FOD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing Printing WFS package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-Printing-WFS-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-Printing-WFS-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing Steps Recorder package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Installing WordPad package"
-Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-WordPad-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait -ErrorAction SilentlyContinue
+Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\FOD\Microsoft-Windows-WordPad-FoD-Package~31bf3856ad364e35~amd64~en-gb~.cab" -Wait 
 
 Write-Host "Azure Image Builder: Setting Windows User Language"
 $LanguageList = Get-WinUserLanguageList
@@ -117,6 +117,3 @@ Set-WinUserLanguageList $LanguageList -Force
 
 Write-Host "Azure Image Builder: Setting Windows System Locale"
 Set-WinSystemLocale -SystemLocale "en-GB"
-
-param($code=0)
-exit $code
