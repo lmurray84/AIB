@@ -68,8 +68,8 @@ Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -Task
 
 
 # Install language packs
-#Write-Host "Azure Image Builder: Installing Language Experience Pack"
-#Start-Process -FilePath PowerShell -ArgumentList "Add-AppProvisionedPackage -Online -PackagePath $languagesDir\Language\LanguageExperiencePack.en-GB.Neutral.appx -LicensePath $languagesDir\Language\License.xml" -Wait -ErrorAction SilentlyContinue
+Write-Host "Azure Image Builder: Installing Language Experience Pack"
+Start-Process -FilePath PowerShell -ArgumentList "Add-AppProvisionedPackage -Online -PackagePath $languagesDir\Language\LanguageExperiencePack.en-GB.Neutral.appx -LicensePath $languagesDir\Language\License.xml" -Wait -ErrorAction SilentlyContinue
 
 Write-Host "Azure Image Builder: Installing Client Language Pack"
 Start-Process -FilePath PowerShell -ArgumentList "Add-WindowsPackage -Online -PackagePath $languagesDir\Language\Microsoft-Windows-Client-Language-Pack_x64_en-gb.cab" -Wait -ErrorAction SilentlyContinue
@@ -115,5 +115,8 @@ $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("en-gb")
 Set-WinUserLanguageList $LanguageList -Force
 
-#Write-Host "Azure Image Builder: Setting Windows System Locale"
-#Set-WinSystemLocale -SystemLocale "en-GB"
+Write-Host "Azure Image Builder: Setting Windows System Locale"
+Set-WinSystemLocale -SystemLocale "en-GB"
+
+param($code=0)
+exit $code
