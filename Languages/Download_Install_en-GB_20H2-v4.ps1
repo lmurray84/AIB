@@ -115,5 +115,5 @@ $LanguageList = Get-WinUserLanguageList
 $LanguageList.Add("en-gb")
 Set-WinUserLanguageList $LanguageList -Force
 
-Write-Host "Azure Image Builder: Setting Windows System Locale"
-Set-WinSystemLocale -SystemLocale "en-GB"
+#Write-Host "Azure Image Builder: Setting Windows System Locale"
+#Set-WinSystemLocale -SystemLocale "en-GB"
