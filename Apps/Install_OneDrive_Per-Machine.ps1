@@ -1,11 +1,11 @@
 $softwareRepo = "C:\Temp\Software\OneDrive"
+$progressPreference = "SilentlyContinue"
 
 # Create OneDrive for Business software repository
 Write-Host "Azure Image Builder: Creating OneDrive for Business software repository"
 New-Item -ItemType Directory -Path $softwareRepo -Force -ErrorAction SilentlyContinue
 
 # Download OneDrive for Business
-$progressPreference = 'SilentlyContinue'
 Write-Host "Azure Image Builder: Downloading OneDrive for Business latest software"
 Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=844652" -OutFile "$softwareRepo\OneDriveSetup.exe"
 
