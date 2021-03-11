@@ -1,4 +1,5 @@
 $softwareRepo = "C:\Temp\Software\M365"
+$progressPreference = 'SilentlyContinue'
 
 # Create M365 software repository
 Write-Host "Azure Image Builder: Creating Microsoft 365 Apps for Enterprise software repository"
