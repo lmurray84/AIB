@@ -1,4 +1,5 @@
 $softwareRepo = "C:\Temp\Software\Teams"
+$progressPreference = "SilentlyContinue"
 
 # Create Microsoft Teams software repository
 Write-Host "Azure Image Builder: Creating Microsoft Teams software repository"
