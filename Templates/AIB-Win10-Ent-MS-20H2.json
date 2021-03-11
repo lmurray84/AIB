@@ -31,9 +31,9 @@
           }
         },
         "properties": {
-          "buildTimeoutInMinutes": 120,
+          "buildTimeoutInMinutes": 90,
           "vmProfile": {
-            "vmSize": "Standard_D2_v2",
+            "vmSize": "standard_d2s_v3",
             "osDiskSizeGB": 128
           },
           "source": {
@@ -44,6 +44,12 @@
             "version": "latest"
           },
           "customize": [
+            {
+              "type": "PowerShell",
+              "runElevated": true,
+              "name": "InstallLanguagePacks",
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Languages/Download_Install_en-GB_2004_20H2.ps1"
+            },
             {
               "type": "PowerShell",
               "runElevated": true,
@@ -71,12 +77,6 @@
             {
               "type": "PowerShell",
               "runElevated": true,
-              "name": "InstallLanguagePacks",
-              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Languages/Add_Language_en-GB.ps1"
-            },
-            {
-              "type": "PowerShell",
-              "runElevated": true,
               "name": "DeprovisioningScript",
               "inline": [
                 "((Get-Content -path C:\\DeprovisioningScript.ps1 -Raw) -replace 'Sysprep.exe /oobe /generalize /quiet /quit','Sysprep.exe /oobe /generalize /quit /mode:vm' ) | Set-Content -Path C:\\DeprovisioningScript.ps1"
@@ -100,26 +100,3 @@
     ]
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
