@@ -27,7 +27,7 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "/subscriptions/045feb1c-8f6a-4b14-af82-1e38d11adc01/resourcegroups/lm-rg-aib/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity1612014372": {}
+            "/subscriptions/<subscriptionID>/resourcegroups/<rgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<imgBuilderId>": {}
           }
         },
         "properties": {
@@ -49,12 +49,6 @@
               "runElevated": true,
               "name": "InstallLanguagePacks",
               "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Languages/Download_Install_en-GB_2004_20H2.ps1"
-            },
-            {
-              "type": "PowerShell",
-              "runElevated": true,
-              "name": "InstallFSLogix",
-              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_FSLogix.ps1"
             },
             {
               "type": "PowerShell",
@@ -86,9 +80,9 @@
           "distribute": [
             {
               "type": "ManagedImage",
-              "imageId": "/subscriptions/045feb1c-8f6a-4b14-af82-1e38d11adc01/resourceGroups/lm-rg-aib/providers/Microsoft.Compute/images/AIB-Win10-Ent-MS-20H2",
-              "location": "northeurope",
-              "runOutputName": "win10Client",
+              "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
+              "location": "<region>",
+              "runOutputName": "<runOutputName>",
               "artifactTags": {
                 "source": "azVmImageBuilder",
                 "baseosimg": "windows10Multi"
