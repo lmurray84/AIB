@@ -1,4 +1,4 @@
-$softwareRepo = "C:\Temp\Software\OneDrive"
+$softwareRepo = "C:\buildArtifacts\OneDrive"
 $progressPreference = "SilentlyContinue"
 
 # Create OneDrive for Business software repository

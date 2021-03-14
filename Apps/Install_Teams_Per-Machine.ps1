@@ -1,4 +1,4 @@
-$softwareRepo = "C:\Temp\Software\Teams"
+$softwareRepo = "C:\buildArtifacts\Teams"
 $progressPreference = "SilentlyContinue"
 
 # Create Microsoft Teams software repository

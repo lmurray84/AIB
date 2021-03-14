@@ -1,4 +1,4 @@
-$softwareRepo = "C:\Temp\Software\M365"
+$softwareRepo = "C:\buildArtifacts\M365"
 $progressPreference = "SilentlyContinue"
 
 # Create M365 software repository

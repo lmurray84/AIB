@@ -1,4 +1,4 @@
-$softwareRepo = "C:\Temp\Software\FSLogix"
+$softwareRepo = "C:\buildArtifacts\FSLogix"
 $progressPreference = "SilentlyContinue"
 
 # Create FSLogix software repository
