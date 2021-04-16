@@ -66,7 +66,7 @@
               "type": "PowerShell",
               "runElevated": true,
               "name": "InstallM365Apps",
-              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_M365_Apps.ps1"
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install-M365-Apps.ps1"
             },
             {
               "type": "PowerShell",
