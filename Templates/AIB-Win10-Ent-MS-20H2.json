@@ -54,7 +54,7 @@
               "type": "PowerShell",
               "runElevated": true,
               "name": "InstallTeams",
-              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install_Teams_Per-Machine.ps1"
+              "scriptUri": "https://raw.githubusercontent.com/lmurray84/AIB/main/Apps/Install-OneDrive-Per-Machine.ps1"
             },
             {
               "type": "PowerShell",
